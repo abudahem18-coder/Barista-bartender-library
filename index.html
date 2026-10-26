@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#11100e">
+<title>باريستا | Barista</title>
+<style>
+:root{--bg:#0d0c0b;--panel:#191613;--panel2:#211c17;--gold:#d3ad76;--cream:#f6efe4;--muted:#b6a895;--line:#413326}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--cream);font-family:Tahoma,Arial,sans-serif;line-height:1.75}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.layout{min-height:100vh;display:grid;grid-template-columns:225px 1fr}
+aside{background:#100f0d;border-left:1px solid var(--line);padding:22px 14px;display:flex;flex-direction:column;gap:16px}
+.profile{text-align:center;padding:4px 8px 18px;border-bottom:1px solid var(--line)}.avatar{width:100px;height:100px;object-fit:cover;border-radius:50%;border:2px solid var(--gold);padding:3px}.profile h3{margin:8px 0 0;font-size:17px}.profile p{margin:0;color:var(--muted);font-size:12px}
+.nav{display:grid;gap:6px}.nav button{width:100%;text-align:right;border:1px solid transparent;background:transparent;color:var(--cream);padding:11px 12px;border-radius:10px}.nav button:hover,.nav button.active{background:#2b241b;border-color:#4b3925;color:var(--gold)}
+.quote{margin-top:auto;border:1px solid var(--line);padding:16px;border-radius:12px;text-align:center;color:var(--gold);font-size:13px}
+main{min-width:0}.hero{min-height:180px;padding:30px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(100deg,#17110cdd,#17110c88),url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1800&q=85') center/cover;border-bottom:1px solid var(--line)}
+.hero h1{font-family:Georgia,Tahoma,serif;font-size:clamp(36px,5vw,64px);line-height:1.2;margin:0;color:#e4c396}.hero p{margin:10px 0 0;color:#dfcdb5}.eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold)}
+.content{padding:22px;max-width:1500px;margin:auto}.welcome{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:18px}.welcome-banner{border:1px solid var(--line);border-radius:15px;padding:24px;background:linear-gradient(90deg,#15100be8,#15100b77),url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=1200&q=80') center/cover;min-height:150px}.welcome-banner h2{margin:0 0 6px}.welcome-banner p{margin:0;color:#e2d4c0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat,.card,.box{background:linear-gradient(145deg,#201b16,#151310);border:1px solid var(--line);border-radius:14px;padding:16px}.stat b{display:block;color:var(--gold);font-size:23px}.stat span{font-size:12px;color:var(--muted)}
+.tabs{display:flex;gap:7px;overflow-x:auto;padding:5px 0 18px}.tabs button,.btn{border:1px solid var(--line);background:var(--panel2);color:var(--cream);padding:9px 13px;border-radius:9px;white-space:nowrap}.tabs button.active,.btn.primary{background:var(--gold);color:#20160c;border-color:var(--gold);font-weight:bold}
+.section{display:none}.section.active{display:block}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0 15px}.section h2{font-size:23px;color:var(--gold);margin:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.card h3{margin:0 0 6px;color:var(--gold);font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px;white-space:pre-wrap}.tag{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:2px 9px;color:var(--gold);font-size:11px;margin-bottom:8px}
+label{display:block;color:var(--muted);font-size:13px;margin:9px 0 4px}input,select,textarea{width:100%;padding:11px;background:#100f0d;color:var(--cream);border:1px solid var(--line);border-radius:9px}textarea{min-height:82px;resize:vertical}.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}.result{font-size:24px;color:var(--gold);font-weight:bold}.small{font-size:12px;color:var(--muted)}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.actions button{font-size:12px;padding:7px 10px}.empty{padding:25px;border:1px dashed var(--line);border-radius:12px;text-align:center;color:var(--muted)}footer{text-align:center;padding:25px;color:var(--muted);font-size:11px;letter-spacing:2px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}aside{border-left:0;border-bottom:1px solid var(--line);padding:12px}.profile{display:flex;align-items:center;gap:12px;text-align:right;padding:4px 8px 12px}.avatar{width:62px;height:62px}.profile p{margin-top:2px}.nav{display:flex;overflow-x:auto}.nav button{width:auto;white-space:nowrap}.quote{display:none}.hero{min-height:150px;padding:22px}.welcome{grid-template-columns:1fr}.content{padding:14px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="profile"><img class="avatar" src="profile.jpg" alt="صورة الباريستا"><div><h3>Barista</h3><p>Specialty Coffee & Drinks</p></div></div>
+  <nav class="nav" id="sideNav">
+    <button class="active" data-tab="home">⌂　الرئيسية</button>
+    <button data-tab="beans">◉　عالم البن المختص</button>
+    <button data-tab="methods">☕　طرق التحضير</button>
+    <button data-tab="recipes">▤　ريسيبياتي</button>
+    <button data-tab="cost">▦　حاسبة التكلفة</button>
+    <button data-tab="learn">✧　التعلم والتدريب</button>
+    <button data-tab="notes">✎　ملاحظاتي</button>
+  </nav>
+  <div class="quote">“Good coffee is not just a drink — it's a craft.”</div>
+</aside>
+<main>
+<header class="hero"><div><div class="eyebrow">SPECIALTY COFFEE · BARISTA · BARTENDER</div><h1>باريستا | Barista</h1><p>قهوة مختصة، وصفاتك الخاصة، ومسيرتك في عالم المشروبات.</p></div></header>
+<div class="content">
+<div class="welcome">
+  <div class="welcome-banner"><div class="eyebrow">YOUR PERSONAL LIBRARY</div><h2>مرحبًا بك في مكتبتك الشخصية</h2><p>اكتشف البن، طوّر مهاراتك، واحفظ ريسيبياتك بالطريقة التي تناسبك.</p></div>
+  <div class="stats"><div class="stat"><b id="recipeCount">0</b><span>وصفات محفوظة على هذا الجهاز</span></div><div class="stat"><b>12+</b><span>موضوعًا عن البن والتحضير</span></div><div class="stat"><b>01</b><span>مكتبتك الشخصية</span></div><div class="stat"><b>∞</b><span>مساحة لتجاربك القادمة</span></div></div>
+</div>
+<div class="tabs" id="topTabs">
+<button class="active" data-tab="home">الرئيسية</button><button data-tab="beans">عالم البن</button><button data-tab="methods">طرق التحضير</button><button data-tab="recipes">ريسيبياتي</button><button data-tab="cost">التكلفة</button><button data-tab="learn">التدريب</button><button data-tab="notes">ملاحظاتي</button>
+</div>
+<section id="home" class="section active">
+<div class="section-head"><h2>أقسام المكتبة</h2><input id="globalSearch" placeholder="ابحث في مكتبة القهوة..." style="max-width:310px"></div>
+<div class="grid" id="homeCards"></div>
+</section>
+<section id="beans" class="section">
+<div class="section-head"><h2>عالم البن والقهوة المختصة</h2><input id="beanSearch" placeholder="ابحث عن نوع أو صنف أو معالجة..." style="max-width:310px"></div>
+<h3>الأنواع الرئيسية</h3><div class="grid" id="beanCards"></div>
+<h3 style="margin-top:24px">أصناف وسلالات مشهورة</h3><div class="grid" id="varietyCards"></div>
+<h3 style="margin-top:24px">المعالجة بعد الحصاد</h3><div class="grid" id="processCards"></div>
+<h3 style="margin-top:24px">دول ومناطق الإنتاج</h3><div class="grid" id="originCards"></div>
+</section>
+<section id="methods" class="section">
+<div class="section-head"><h2>طرق التحضير والاستخلاص</h2></div><div class="grid" id="methodCards"></div>
+<div class="box" style="margin-top:14px"><h3>حاسبة نسبة القهوة إلى الماء</h3><div class="formgrid"><div><label>كمية البن (غرام)</label><input id="dose" type="number" value="20" min="0"></div><div><label>النسبة (مثال 15 تعني 1:15)</label><input id="ratio" type="number" value="15" min="1"></div></div><p>الماء المقترح: <span class="result" id="water">300</span> غرام</p><p class="small">ابدأ بهذه النسبة ثم عدّل الطحن والوصفة حسب طعم البن ونتيجة الاستخلاص.</p></div>
+</section>
+<section id="recipes" class="section">
+<div class="section-head"><h2>ريسيبياتي الخاصة</h2></div>
+<div class="box"><p class="small">أضف وصفاتك بنفسك. تُحفظ في هذا المتصفح على هذا الجهاز في النسخة الحالية.</p>
+<form id="recipeForm"><input type="hidden" id="editId">
+<div class="formgrid"><div><label>اسم المشروب</label><input id="rname" required placeholder="مثال: آيس لاتيه خاص"></div><div><label>التصنيف</label><select id="rtype"><option>قهوة مختصة</option><option>إسبريسو</option><option>مشروب ساخن</option><option>مشروب بارد</option><option>كوكتيل</option><option>أخرى</option></select></div><div><label>حجم الكوب (مل)</label><input id="rsize" type="number" min="0" placeholder="350"></div></div>
+<label>المقادير والكميات</label><textarea id="ring" required placeholder="مثال: إسبريسو 36 غ، حليب 180 مل، ثلج..."></textarea>
+<label>طريقة التحضير</label><textarea id="rsteps" placeholder="اكتب الخطوات بالتفصيل"></textarea><label>ملاحظاتك</label><textarea id="rnotes" placeholder="الطعم، الطحن، الوقت، التعديلات..."></textarea>
+<div class="actions"><button class="btn primary" type="submit">حفظ الوصفة</button><button class="btn" type="button" id="cancelEdit">إلغاء التعديل</button></div></form></div>
+<h3 style="margin-top:22px">الوصفات المحفوظة</h3><div id="myRecipes" class="grid"></div>
+</section>
+<section id="cost" class="section">
+<div class="section-head"><h2>حاسبة تكلفة المشروب</h2></div><div class="box"><p class="small">أدخل تكلفة المكونات المستخدمة في كوب واحد بالريال السعودي.</p>
+<div class="formgrid"><div><label>البن (ر.س)</label><input class="costInput" id="coffeeCost" type="number" min="0" step=".01" value="1"></div><div><label>الحليب (ر.س)</label><input class="costInput" id="milkCost" type="number" min="0" step=".01" value=".8"></div><div><label>الشراب والإضافات (ر.س)</label><input class="costInput" id="extraCost" type="number" min="0" step=".01" value=".5"></div><div><label>الكوب والغطاء (ر.س)</label><input class="costInput" id="cupCost" type="number" min="0" step=".01" value=".5"></div><div><label>تكاليف أخرى (ر.س)</label><input class="costInput" id="otherCost" type="number" min="0" step=".01" value="0"></div><div><label>سعر البيع (ر.س)</label><input class="costInput" id="sellPrice" type="number" min="0" step=".01" value="15"></div></div>
+<div class="grid" style="margin-top:15px"><div class="card"><p>تكلفة الكوب</p><div class="result" id="totalCost">2.80 ر.س</div></div><div class="card"><p>الربح قبل المصاريف العامة</p><div class="result" id="profit">12.20 ر.س</div></div><div class="card"><p>هامش الربح</p><div class="result" id="margin">81.3%</div></div></div></div>
+</section>
+<section id="learn" class="section"><div class="section-head"><h2>التعلم والتدريب</h2></div><div class="grid" id="learnCards"></div></section>
+<section id="notes" class="section"><div class="section-head"><h2>مفكرة تجارب القهوة</h2></div><div class="box"><label>عنوان الملاحظة</label><input id="noteTitle" placeholder="مثال: تجربة محصول إثيوبي"><label>ملاحظاتك</label><textarea id="noteText" placeholder="نوع البن، المحصول، المعالجة، التحميص، الطحن، الجرعة، الوقت والطعم..."></textarea><button class="btn primary" id="saveNote">حفظ الملاحظة</button></div><div id="notesList" class="grid" style="margin-top:14px"></div></section>
+<footer>باريستا | BARISTA · SPECIALTY COFFEE LIBRARY</footer>
+</div></main></div>
+<script>
+const data={
+beans:[
+["أرابيكا · Arabica","نوع واسع الانتشار، معروف بتنوع الروائح والنكهات، ويضم أصنافًا كثيرة."],
+["روبوستا · Canephora","غالبًا أعلى كافيينًا وأكثر مرارة وقوامًا؛ يستخدم في بعض الخلطات والقهوة الفورية."],
+["ليبيريكا · Liberica","نوع أقل انتشارًا، وقد تظهر في بعض محاصيله روائح فاكهية وخشبية."],
+["إكسلسا · Excelsa","اسم شائع تاريخيًا ضمن مجموعة ليبيريكا، وله طابع عطري مميز في بعض المحاصيل."]
+],
+varieties:[
+["جيشا · Geisha","صنف مشهور بعطر زهري ونكهات دقيقة في بعض المحاصيل."],["بوربون · Bourbon","صنف من أرابيكا، تختلف خصائصه حسب البيئة والمعالجة."],["تيبيكا · Typica","من السلالات التقليدية لأرابيكا."],["كاتورا · Caturra","طفرة من بوربون تزرع في دول متعددة."],["كاتواي · Catuai","هجين من موندو نوفو وكاتورا."],["SL28 وSL34","سلالات مرتبطة بمحاصيل كينية معروفة."],["بكّامارا · Pacamara","هجين بحبوب كبيرة وإمكانات نكهة معقدة."],["سيدرا · Sidra","صنف يظهر في بعض مزارع القهوة المختصة."]
+],
+processes:[
+["مغسولة · Washed","تزال طبقات الثمرة قبل التجفيف غالبًا؛ قد تبرز الوضوح والحموضة."],["طبيعية · Natural","تجفف الثمرة حول الحبة؛ قد تزيد النكهات الفاكهية والقوام."],["عسلية · Honey","يبقى جزء من المادة اللزجة أثناء التجفيف، ولها درجات متعددة."],["لاهوائية · Anaerobic","تخمير مضبوط ببيئة محدودة الأكسجين؛ تختلف النتيجة حسب المنهج."],["تخمير كربوني","تستخدم بعض المعالجات بيئة غنية بثاني أكسيد الكربون."],["منزوعة الكافيين","يُزال معظم الكافيين بطرق مختلفة، وقد تبقى كمية قليلة."]
+],
+origins:[
+["إثيوبيا","تنوع كبير في الأصناف المحلية؛ قد تظهر نكهات زهرية وحمضيات وفواكه."],["كولومبيا","مناطق ومحاصيل متنوعة، تتغير نكهاتها حسب الصنف والمعالجة."],["البرازيل","كثير من المحاصيل تقدم نكهات مكسرات وشوكولاتة."],["كينيا","قد تتميز بعض المحاصيل بحموضة مشرقة وطابع فاكهي."],["اليمن","تاريخ طويل في زراعة القهوة ومحاصيل ذات طابع مميز."],["كوستاريكا","تشتهر بتنوع المناطق وطرق المعالجة."],["بنما","مرتبطة بمحاصيل جيشا مشهورة إلى جانب أصناف أخرى."],["إندونيسيا","محاصيل متنوعة وقد تقدم بعضها قوامًا ممتلئًا."]
+],
+methods:[
+["V60","صب يدوي؛ جرّب نسبة 1:15 إلى 1:17 وعدّل الطحن والوقت حسب الطعم."],["كيمكس · Chemex","ترشيح ورقي غالبًا يعطي كوبًا واضحًا ونظيفًا."],["إسبريسو · Espresso","استخلاص مركز تحت الضغط؛ اضبط الجرعة والناتج والوقت والطعم."],["كولد برو · Cold Brew","استخلاص بالماء البارد لفترة طويلة؛ النسبة والوقت يختلفان حسب الوصفة."],["آيروبرس · AeroPress","أداة مرنة تسمح بتجارب مختلفة في الوقت والطحن والضغط."],["فرنش برس · French Press","غمر كامل مع فلتر معدني يعطي غالبًا قوامًا أوضح."],["لاتيه وكابتشينو","مشروبات إسبريسو مع حليب مبخر، تختلف نسبة الحليب والرغوة."],["موكا بوت · Moka Pot","تحضير على الموقد ينتج قهوة مركزة، لكنها ليست إسبريسو."]
+],
+learn:[
+["أساسيات القهوة المختصة","من الحبة الخضراء إلى التحميص والطحن والاستخلاص والتذوق."],["معادلة الإسبريسو","Dose · Grind · Yield · Time · Temperature · Pressure · Taste."],["التذوق الحسي","تدرب على الحموضة والحلاوة والمرارة والقوام والعطر والتوازن."],["الباريستا والبارتندر","تنظيم محطة العمل والنظافة ووصفات المشروبات وخدمة الضيوف."],["إدارة الوصفات","سجل المقادير الدقيقة، خطوات التحضير، حجم الحصة، والتكلفة."],["تطوير الوصفة","غيّر متغيرًا واحدًا في كل تجربة وسجل أثره على الطعم."]
+]};
+function cards(id,items){document.getElementById(id).innerHTML=items.map(x=>`<article class="card searchable"><span class="tag">COFFEE KNOWLEDGE</span><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p></article>`).join("")}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+cards("beanCards",data.beans);cards("varietyCards",data.varieties);cards("processCards",data.processes);cards("originCards",data.origins);cards("methodCards",data.methods);cards("learnCards",data.learn);
+document.getElementById("homeCards").innerHTML=[
+["عالم البن المختص","أنواع البن، الأصناف، المعالجة، والدول المنتجة.","beans"],
+["طرق التحضير","V60، كيمكس، إسبريسو، كولد برو وغيرها.","methods"],
+["ريسيبياتي الخاصة","أضف وصفاتك واحفظ المقادير والخطوات والملاحظات.","recipes"],
+["حاسبة التكلفة","احسب تكلفة الكوب وسعر البيع والربح.","cost"],
+["التعلم والتدريب","طوّر مهاراتك في القهوة والمشروبات.","learn"],
+["مفكرة التجارب","احتفظ بتجارب الطحن والاستخلاص والتذوق.","notes"]
+].map(x=>`<article class="card"><span class="tag">YOUR LIBRARY</span><h3>${x[0]}</h3><p>${x[1]}</p><div class="actions"><button class="btn" onclick="activate('${x[2]}')">افتح القسم ←</button></div></article>`).join("");
+function activate(id){document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id===id));document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>activate(b.dataset.tab)));
+function ratioCalc(){let d=Math.max(0,Number(document.getElementById("dose").value)||0),r=Math.max(0,Number(document.getElementById("ratio").value)||0);document.getElementById("water").textContent=Math.round(d*r)}
+document.getElementById("dose").addEventListener("input",ratioCalc);document.getElementById("ratio").addEventListener("input",ratioCalc);
+function calcCost(){let ids=["coffeeCost","milkCost","extraCost","cupCost","otherCost"],sum=ids.reduce((a,id)=>a+Math.max(0,Number(document.getElementById(id).value)||0),0),price=Math.max(0,Number(document.getElementById("sellPrice").value)||0);document.getElementById("totalCost").textContent=sum.toFixed(2)+" ر.س";document.getElementById("profit").textContent=(price-sum).toFixed(2)+" ر.س";document.getElementById("margin").textContent=(price?((price-sum)/price*100):0).toFixed(1)+"%"}
+document.querySelectorAll(".costInput").forEach(i=>i.addEventListener("input",calcCost));calcCost();
+let recipes=JSON.parse(localStorage.getItem("baristaRecipes")||"[]");
+function saveRecipes(){localStorage.setItem("baristaRecipes",JSON.stringify(recipes));renderRecipes();document.getElementById("recipeCount").textContent=recipes.length}
+function renderRecipes(){let el=document.getElementById("myRecipes");if(!recipes.length){el.innerHTML='<div class="empty">ما حفظت وصفاتك بعد. أضف أول ريسيبي لك من النموذج أعلاه.</div>';return}el.innerHTML=recipes.map(r=>`<article class="card"><span class="tag">${esc(r.type)}</span><h3>${esc(r.name)}</h3><p>${r.size?esc(r.size)+" مل<br>":""}<b>المقادير:</b><br>${esc(r.ingredients)}<br><br><b>التحضير:</b><br>${esc(r.steps||"—")}<br><br><b>ملاحظات:</b><br>${esc(r.notes||"—")}</p><div class="actions"><button class="btn" onclick="editRecipe('${r.id}')">تعديل</button><button class="btn" onclick="deleteRecipe('${r.id}')">حذف</button></div></article>`).join("")}
+document.getElementById("recipeForm").addEventListener("submit",e=>{e.preventDefault();let id=document.getElementById("editId").value||String(Date.now()),r={id,name:document.getElementById("rname").value.trim(),type:document.getElementById("rtype").value,size:document.getElementById("rsize").value,ingredients:document.getElementById("ring").value,steps:document.getElementById("rsteps").value,notes:document.getElementById("rnotes").value};let i=recipes.findIndex(x=>x.id===id);if(i>=0)recipes[i]=r;else recipes.unshift(r);saveRecipes();e.target.reset();document.getElementById("editId").value=""});
+function editRecipe(id){let r=recipes.find(x=>x.id===id);if(!r)return;activate("recipes");for(let [k,v] of Object.entries({editId:r.id,rname:r.name,rtype:r.type,rsize:r.size,ring:r.ingredients,rsteps:r.steps,rnotes:r.notes}))document.getElementById(k).value=v;window.scrollTo({top:0,behavior:"smooth"})}
+function deleteRecipe(id){if(confirm("هل تريد حذف هذه الوصفة؟")){recipes=recipes.filter(x=>x.id!==id);saveRecipes()}}
+document.getElementById("cancelEdit").addEventListener("click",()=>{document.getElementById("recipeForm").reset();document.getElementById("editId").value=""});
+let notes=JSON.parse(localStorage.getItem("baristaNotes")||"[]");
+function renderNotes(){let el=document.getElementById("notesList");el.innerHTML=notes.length?notes.map(n=>`<article class="card"><h3>${esc(n.title)}</h3><p>${esc(n.text)}</p><div class="actions"><button class="btn" onclick="deleteNote('${n.id}')">حذف</button></div></article>`).join(""):'<div class="empty">لا توجد ملاحظات محفوظة بعد.</div>'}
+document.getElementById("saveNote").addEventListener("click",()=>{let title=document.getElementById("noteTitle").value.trim(),text=document.getElementById("noteText").value.trim();if(!title||!text){alert("اكتب عنوان الملاحظة ومحتواها أولًا.");return}notes.unshift({id:String(Date.now()),title,text});localStorage.setItem("baristaNotes",JSON.stringify(notes));document.getElementById("noteTitle").value="";document.getElementById("noteText").value="";renderNotes()});
+function deleteNote(id){notes=notes.filter(n=>n.id!==id);localStorage.setItem("baristaNotes",JSON.stringify(notes));renderNotes()}
+function searchAll(q){q=q.trim().toLowerCase();document.querySelectorAll(".searchable").forEach(c=>c.style.display=(!q||c.textContent.toLowerCase().includes(q))?"":"none");document.querySelectorAll("#homeCards .card").forEach(c=>c.style.display=(!q||c.textContent.toLowerCase().includes(q))?"":"none")}
+document.getElementById("globalSearch").addEventListener("input",e=>{activate("home");searchAll(e.target.value)});
+document.getElementById("beanSearch").addEventListener("input",e=>{let q=e.target.value.toLowerCase();document.querySelectorAll("#beans .card").forEach(c=>c.style.display=c.textContent.toLowerCase().includes(q)?"":"none")});
+renderRecipes();renderNotes();ratioCalc();
+</script>
+</body>
+</html>
